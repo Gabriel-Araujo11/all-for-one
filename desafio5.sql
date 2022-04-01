@@ -1,13 +1,18 @@
 SELECT
-    cancoes.name_song,
-    COUNT(reproducoes.song_id) as reproducoes
-FROM
-    SpotifyClone.songs as cancoes
-    INNER JOIN SpotifyClone.history_rep as reproducoes ON cancoes.id_song = reproducoes.song_id
+
+musics.name_song AS cancao,
+COUNT(historyy.song_id) AS reproducoes
+
+FROM SpotifyClone.songs AS musics
+
+INNER JOIN SpotifyClone.history_rep AS historyy ON musics.id_song = historyy.song_id
+
 GROUP BY
-    cancoes.id_song
+musics.name_song
+
 ORDER BY
-    reproducoes DESC,
-    cancoes.name_song
+reproducoes DESC,
+cancao
+
 LIMIT
-    2;
+2;
